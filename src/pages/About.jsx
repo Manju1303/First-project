@@ -1,10 +1,10 @@
-import { Users, Award, Target, Heart, CheckCircle } from 'lucide-react';
+import { Users, Award, Target, CheckCircle, Lightbulb, Zap, Globe } from 'lucide-react';
 import EnquirySection from '../components/home/EnquirySection';
 
 const About = () => {
     const values = [
         { icon: Target, title: "Our Mission", description: "To guide every student towards their ideal educational path and career success through personalized counselling." },
-        { icon: Heart, title: "Our Vision", description: "To be the most trusted educational guidance center in Tamil Nadu, transforming lives through quality education access." },
+        { icon: Lightbulb, title: "Our Vision", description: "To be the most trusted educational guidance center in Tamil Nadu, transforming lives through quality education access." },
         { icon: Award, title: "Our Values", description: "Integrity, Student-First Approach, Excellence, and Commitment to Success define everything we do." }
     ];
 
@@ -15,10 +15,11 @@ const About = () => {
         { number: "95%", label: "Success Rate" }
     ];
 
-    const team = [
-        { name: "Director", role: "Chief Education Consultant", experience: "20+ years in Education" },
-        { name: "Senior Counsellor", role: "Career Guidance Expert", experience: "15+ years experience" },
-        { name: "Abroad Study Head", role: "International Admissions", experience: "10+ years experience" }
+    const whyChoose = [
+        { icon: Target, title: "Expert Guidance", description: "Our experienced counsellors provide personalized guidance based on individual strengths and aspirations." },
+        { icon: Zap, title: "Fast Track Process", description: "Streamlined admission process with quick response times and dedicated support throughout." },
+        { icon: Globe, title: "Global Reach", description: "Connections with 500+ colleges and universities across India and internationally." },
+        { icon: Award, title: "Proven Success", description: "95% success rate with thousands of students successfully admitted to their preferred institutions." }
     ];
 
     return (
@@ -30,14 +31,14 @@ const About = () => {
                 </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <span className="inline-block bg-secondary text-text-dark px-6 py-2 font-bold text-sm mb-6 animate-fade-in"
-                        style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                        style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '1px' }}>
                         ABOUT US
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in-up"
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-slide-in-up leading-tight"
                         style={{ fontFamily: 'Poppins, sans-serif' }}>
                         About <span className="text-secondary">INSTA</span> Educational Guidance Centre
                     </h1>
-                    <p className="text-white/80 max-w-3xl mx-auto text-lg animate-fade-in"
+                    <p className="text-white/85 max-w-3xl mx-auto text-lg animate-fade-in leading-relaxed"
                         style={{ fontFamily: 'Roboto, sans-serif', animationDelay: '0.3s' }}>
                         Your trusted partner for academic excellence since 2010. We have helped thousands of students find their perfect educational path.
                     </p>
@@ -45,49 +46,49 @@ const About = () => {
             </section>
 
             {/* About Content */}
-            <section className="py-16 bg-white">
+            <section className="py-24 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="animate-slide-in-left">
-                            <span className="inline-block bg-secondary px-4 py-1 text-text-dark font-semibold text-sm mb-4"
-                                style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                            <span className="inline-block bg-secondary px-6 py-2 text-text-dark font-semibold text-sm mb-6 rounded"
+                                style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '1px' }}>
                                 WHO WE ARE
                             </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6"
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-8 leading-tight"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 Guiding Students Towards Bright Futures
                             </h2>
-                            <div className="space-y-4 text-text-dark/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                <p>
+                            <div className="space-y-6 text-text-dark/80" style={{ fontFamily: 'Roboto, sans-serif', lineHeight: '1.8' }}>
+                                <p className="text-base md:text-lg">
                                     <strong className="text-primary">INSTA Educational Guidance Centre</strong> was established with a single mission: to help students navigate the complex world of higher education and career choices.
                                 </p>
-                                <p>
+                                <p className="text-base md:text-lg">
                                     With over 15 years of experience, we have become one of the most trusted names in educational consultancy in Tamil Nadu. Our team of expert counsellors works tirelessly to ensure every student finds the right course, college, and career path.
                                 </p>
-                                <p>
+                                <p className="text-base md:text-lg">
                                     We offer comprehensive guidance for engineering, medical, arts & science, law, and abroad study programs. Our personalized approach ensures that each student receives individual attention and tailored advice.
                                 </p>
                             </div>
 
-                            <div className="mt-8 grid grid-cols-2 gap-4">
-                                {["Expert Team", "Personalized Guidance", "100+ Colleges", "Proven Track Record"].map((item, index) => (
-                                    <div key={index} className="flex items-center gap-2">
-                                        <CheckCircle className="text-secondary w-5 h-5" />
-                                        <span className="font-medium" style={{ fontFamily: 'Roboto, sans-serif' }}>{item}</span>
+                            <div className="mt-10 grid grid-cols-2 gap-5">
+                                {["Expert Team", "Personalized Guidance", "500+ Colleges", "Proven Track Record"].map((item, index) => (
+                                    <div key={index} className="flex items-center gap-3 p-3 bg-secondary/10 rounded-lg hover:bg-secondary/20 transition-colors">
+                                        <CheckCircle className="text-secondary w-6 h-6 flex-shrink-0" />
+                                        <span className="font-semibold text-primary text-sm md:text-base" style={{ fontFamily: 'Roboto, sans-serif' }}>{item}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        <div className="bg-primary p-8 animate-slide-in-right">
-                            <div className="grid grid-cols-2 gap-6">
+                        <div className="bg-gradient-to-br from-primary to-primary-dark p-10 rounded-xl animate-slide-in-right shadow-2xl">
+                            <div className="grid grid-cols-2 gap-8">
                                 {stats.map((stat, index) => (
-                                    <div key={index} className="text-center p-4 bg-white/10">
-                                        <div className="text-3xl md:text-4xl font-extrabold text-secondary mb-2"
+                                    <div key={index} className="text-center p-5 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20 hover:border-secondary/50 transition-all">
+                                        <div className="text-3xl md:text-4xl font-extrabold text-secondary mb-3"
                                             style={{ fontFamily: 'Montserrat, sans-serif' }}>
                                             {stat.number}
                                         </div>
-                                        <div className="text-white/80 text-sm" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                        <div className="text-white/90 text-sm font-semibold" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                             {stat.label}
                                         </div>
                                     </div>
@@ -99,22 +100,26 @@ const About = () => {
             </section>
 
             {/* Mission Vision Values */}
-            <section className="py-16 bg-bg-light">
+            <section className="py-24 bg-bg-light">
                 <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16 text-center"
+                        style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        Our Foundation
+                    </h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {values.map((item, index) => {
                             const IconComponent = item.icon;
                             return (
                                 <div key={index}
-                                    className="bg-primary p-8 text-center animate-fade-in-up hover:bg-primary-dark transition-colors"
+                                    className="bg-white p-10 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 animate-fade-in-up border-t-4 border-secondary"
                                     style={{ animationDelay: `${index * 0.15}s` }}>
-                                    <div className="w-16 h-16 bg-secondary mx-auto mb-4 flex items-center justify-center">
+                                    <div className="w-16 h-16 bg-secondary rounded-full mx-auto mb-6 flex items-center justify-center shadow-md">
                                         <IconComponent className="w-8 h-8 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-secondary mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                    <h3 className="text-xl font-bold text-primary mb-4 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                         {item.title}
                                     </h3>
-                                    <p className="text-white/80" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                    <p className="text-text-dark/70 text-center leading-relaxed" style={{ fontFamily: 'Roboto, sans-serif' }}>
                                         {item.description}
                                     </p>
                                 </div>
@@ -124,40 +129,56 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
-            <section className="py-16 bg-white">
+            {/* Why Choose Us */}
+            <section className="py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <span className="inline-block bg-secondary px-6 py-2 text-text-dark font-bold text-sm mb-4"
-                            style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                            OUR TEAM
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary"
-                            style={{ fontFamily: 'Poppins, sans-serif' }}>
-                            Meet Our Expert Counsellors
-                        </h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {team.map((member, index) => (
-                            <div key={index}
-                                className="text-center p-6 border-2 border-bg-light hover:border-secondary transition-colors animate-fade-in-up"
-                                style={{ animationDelay: `${index * 0.15}s` }}>
-                                <div className="w-24 h-24 bg-primary mx-auto mb-4 rounded-full flex items-center justify-center">
-                                    <Users className="w-12 h-12 text-secondary" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16 text-center"
+                        style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        Why Choose INSTA?
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {whyChoose.map((item, index) => {
+                            const IconComponent = item.icon;
+                            return (
+                                <div 
+                                    key={index}
+                                    className="p-8 bg-bg-light rounded-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 animate-fade-in-up text-center border border-secondary/10 hover:border-secondary"
+                                    style={{ animationDelay: `${index * 0.1}s` }}
+                                >
+                                    <div className="w-14 h-14 bg-secondary rounded-full mx-auto mb-5 flex items-center justify-center shadow-md">
+                                        <IconComponent className="w-7 h-7 text-primary" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-primary mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-text-dark/70 text-sm leading-relaxed" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                        {item.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-bold text-primary mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                    {member.name}
-                                </h3>
-                                <p className="text-secondary font-semibold text-sm mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                                    {member.role}
-                                </p>
-                                <p className="text-text-dark/70 text-sm" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                    {member.experience}
-                                </p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+                <div className="container mx-auto px-4 text-center animate-fade-in-up">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight"
+                        style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        Ready to Shape Your Future?
+                    </h2>
+                    <p className="text-lg text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed"
+                        style={{ fontFamily: 'Roboto, sans-serif' }}>
+                        Get in touch with our expert counsellors today and start your journey towards success.
+                    </p>
+                    <a
+                        href="/enquiry"
+                        className="inline-flex items-center gap-3 bg-secondary text-primary px-12 py-5 font-bold text-lg hover:bg-secondary-dark transition-all duration-300 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-1"
+                        style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.5px' }}
+                    >
+                        Book A Free Session
+                    </a>
                 </div>
             </section>
 

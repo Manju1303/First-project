@@ -15,6 +15,7 @@
 }
 
 /* Custom Tailwind Theme */
+/* stylelint-disable-next-line at-rule-no-unknown */
 @theme {
   --color-primary: #1976D2;
   --color-primary-dark: #1565C0;
@@ -319,6 +320,165 @@ textarea:focus {
   }
 }
 
+/* Enhanced Spacing & Margins */
+section {
+  margin-bottom: 0.5rem;
+}
+
+section > div {
+  gap: 1.5rem;
+}
+
+/* Text Spacing */
+p {
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.75px;
+  margin-bottom: 1rem;
+}
+
+/* Improved Button Styles */
+button, .btn-primary, .btn-secondary, a[class*="btn"] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button::before, .btn-primary::before, .btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::before, .btn-primary:active::before, .btn-secondary:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Link Hover Effects */
+a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:not([class])::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:not([class]):hover::after {
+  width: 100%;
+}
+
+/* Centered Guide Box Styles */
+.guide-box {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guide-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 184, 0, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.guide-box::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: floatDelayed 6s ease-in-out infinite;
+}
+
+.guide-box-content {
+  position: relative;
+  z-index: 1;
+}
+
+.guide-box h3 {
+  color: var(--secondary-yellow);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.guide-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guide-box-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2rem 0;
+  align-items: center;
+}
+
+.guide-box-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-yellow);
+  max-width: 500px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.guide-box-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(10px);
+}
+
+.guide-box-item h4 {
+  color: var(--secondary-yellow);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.guide-box-item p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
 /* Print Styles */
 @media print {
 
@@ -330,4 +490,401 @@ textarea:focus {
   section {
     page-break-inside: avoid;
   }
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Scroll Reveal Animations */
+@keyframes revealFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Reveal Classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.scroll-reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.scroll-reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.scroll-reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* Float Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatFast {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: floatFast 2s ease-in-out infinite;
+}
+
+/* Floating with delay */
+.float-delay-1 {
+  animation-delay: 0s;
+}
+
+.float-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.float-delay-3 {
+  animation-delay: 0.4s;
+}
+
+.float-delay-4 {
+  animation-delay: 0.6s;
+}
+
+/* Combined scroll and float effect */
+.scroll-float {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: float 3s ease-in-out infinite;
+}
+
+.scroll-float.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Button Click Animation */
+button, a[class*="btn"], .group/nav-link, .group/cta-btn, .group/mobile-nav, .group/mobile-cta, .group/mobile-dropdown {
+  position: relative;
+}
+
+/* Form Focus Animations */
+input:focus, select:focus, textarea:focus {
+  animation: fieldGlow 0.4s ease-out 1;
+}
+
+@keyframes fieldGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(25, 118, 210, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
+  }
+}
+
+/* Enhanced Input Animations */
+input, select, textarea {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+input:hover, select:hover, textarea:hover {
+  border-color: #1976D2;
+  background-color: white;
+}
+
+/* Label Animations */
+label {
+  transition: all 0.3s ease;
+}
+
+/* Button Ripple Effect */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+button:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Navigation Link Enhancements */
+a, button {
+  position: relative;
+}
+
+a::before, button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+/* Enhanced Dropdown Animation */
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdownSlide 0.3s ease-out forwards;
+}
+
+/* Form Field Spacing Improvements */
+.group {
+  transition: all 0.3s ease;
+}
+
+.group:hover {
+  transform: translateY(-2px);
+}
+
+/* Checkbox \& Radio Animations */
+input[type="checkbox"], input[type="radio"] {
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  transform: scale(1.1);
+}
+
+/* Text Input Underline Effect */
+input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+  position: relative;
+  background: linear-gradient(to right, white, white) no-repeat right bottom / 0% 2px;
+  background-color: #f9f9f9;
+  transition: background-size 0.35s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus, textarea:focus {
+  background-size: 100% 2px;
+  background-color: white;
+}
+
+/* Button Hover State Enhancement */
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modal \& Dialog Animations */
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Loading Animation Enhancement */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Success Message Animation */
+@keyframes successBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-success {
+  animation: successBounce 0.6s ease-out;
+}
+
+/* Input Error Animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Form Submit Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
 }

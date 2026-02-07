@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, GraduationCap, FileText, BookMarked, Wallet } from 'lucide-react';
 import { abroadCountries } from '../../data/courses';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 const AbroadStudySection = () => {
+    const sectionRef = useScrollReveal();
     const features = [
         { title: "University Selection", icon: GraduationCap },
         { title: "Visa Assistance", icon: FileText },
@@ -11,30 +13,33 @@ const AbroadStudySection = () => {
     ];
 
     return (
-        <section className="py-20 bg-secondary relative overflow-hidden">
+        <section className="py-28 bg-secondary relative overflow-hidden scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-12 animate-fade-in-up">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4"
-                        style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <div className="text-center mb-16 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-6 scroll-reveal"
+                        style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}>
                         ABROAD STUDY & JOBS
                     </h2>
-                    <p className="text-primary/80 max-w-2xl mx-auto text-lg"
+                    <p className="text-primary/85 max-w-3xl mx-auto text-base md:text-lg leading-relaxed scroll-reveal"
                         style={{ fontFamily: 'Roboto, sans-serif' }}>
-                        Get expert guidance for admissions in top universities across the globe
+                        Get expert guidance for admissions in top universities across the globe. We help you choose the right country and university for your future.
                     </p>
                 </div>
 
                 {/* Countries Grid - 5 columns on large screens, 4 on medium */}
-                <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-10 gap-6 lg:gap-4 mb-12">
-                    {abroadCountries.map((country, index) => (
-                        <div
-                            key={country.name}
-                            className="group text-center animate-fade-in-up cursor-pointer"
-                            style={{ animationDelay: `${index * 0.05}s` }}
-                        >
+                <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-10 gap-6 lg:gap-5 mb-16">
+                    {abroadCountries.map((country, index) => {
+                        const countryRef = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
+                        return (
+                            <div
+                                key={country.name}
+                                ref={countryRef}
+                                className="group text-center animate-fade-in-up cursor-pointer transform hover:-translate-y-2 transition-transform duration-300 scroll-reveal scroll-reveal-delay-1"
+                                style={{ animationDelay: `${index * 0.05}s` }}
+                            >
                             {/* Flag Circle with Image */}
-                            <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border-4 border-primary p-1">
+                            <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-2xl group-hover:scale-125 transition-all duration-300 border-4 border-primary p-1">
                                 <img
                                     src={country.flag}
                                     alt={`${country.name} Flag`}
@@ -44,28 +49,31 @@ const AbroadStudySection = () => {
                             </div>
 
                             {/* Country Name */}
-                            <p className="mt-3 text-primary font-bold text-xs md:text-sm uppercase tracking-wide"
-                                style={{ fontFamily: 'Poppins, sans-serif' }}>
+                            <p className="mt-4 text-primary font-bold text-xs md:text-sm uppercase tracking-wider"
+                                style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '1px' }}>
                                 {country.name}
                             </p>
                         </div>
-                    ))}
+                    );
+                    })}
                 </div>
 
                 {/* Features Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-5 mb-16">
                     {features.map((feature, index) => {
                         const IconComponent = feature.icon;
+                        const featureRef = useScrollReveal({ rootMargin: '0px 0px -50px 0px' });
                         return (
                             <div
                                 key={feature.title}
-                                className="bg-primary text-white p-6 text-center hover:bg-primary-dark transition-colors animate-fade-in-up rounded-lg shadow-md"
+                                ref={featureRef}
+                                className="bg-primary text-white p-7 text-center hover:bg-primary-dark hover:-translate-y-2 transition-all duration-300 animate-fade-in-up rounded-xl shadow-lg hover:shadow-2xl scroll-reveal scroll-reveal-delay-1"
                                 style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                             >
-                                <div className="w-14 h-14 bg-secondary rounded-full mx-auto mb-3 flex items-center justify-center">
-                                    <IconComponent className="w-7 h-7 text-primary" />
+                                <div className="w-16 h-16 bg-secondary rounded-full mx-auto mb-4 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                                    <IconComponent className="w-8 h-8 text-primary" />
                                 </div>
-                                <span className="font-bold text-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                <span className="font-bold text-sm md:text-base" style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}>
                                     {feature.title}
                                 </span>
                             </div>
@@ -74,14 +82,14 @@ const AbroadStudySection = () => {
                 </div>
 
                 {/* CTA */}
-                <div className="text-center animate-fade-in-up" style={{ animationDelay: '1s' }}>
+                <div className="text-center animate-fade-in-up scroll-reveal" style={{ animationDelay: '1s' }}>
                     <Link
                         to="/abroad"
-                        className="inline-flex items-center gap-3 bg-primary text-white px-10 py-4 font-bold text-lg hover:bg-primary-dark transition-all duration-300 transform hover:scale-105 rounded-lg shadow-lg"
-                        style={{ fontFamily: 'Montserrat, sans-serif' }}
+                        className="inline-flex items-center gap-4 bg-primary text-white px-12 py-5 font-bold text-base md:text-lg hover:bg-primary-dark transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl rounded-lg shadow-lg scroll-reveal"
+                        style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.5px' }}
                     >
                         Explore Abroad Study Options
-                        <ArrowRight size={20} />
+                        <ArrowRight size={22} />
                     </Link>
                 </div>
             </div>

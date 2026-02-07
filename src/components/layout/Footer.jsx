@@ -38,7 +38,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <img
-                                src="/logo.svg"
+                                src="/logo.png"
                                 alt="INSTA Logo"
                                 className="h-10 w-auto bg-white p-1 rounded"
                             />

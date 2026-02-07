@@ -73,15 +73,15 @@ const Header = () => {
             </div>
 
             {/* Main Header - White with Logo */}
-            <div className="bg-white py-3 border-b-4 border-primary">
+            <div className="bg-white py-4 border-b-4 border-primary">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo(0, 0)}>
                         {/* Logo Image */}
                         <img
-                            src="/logo.svg"
+                            src="/logo.png"
                             alt="INSTA Logo"
-                            className="h-12 md:h-14 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                            className="h-14 md:h-16 w-auto transform group-hover:scale-110 transition-transform duration-300"
                         />
                         <div>
                             <h1 className="text-primary text-lg md:text-xl font-extrabold tracking-wide leading-tight"
@@ -96,37 +96,64 @@ const Header = () => {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-1">
-                        {navLinks.map((link) => (
+                    <nav className="hidden lg:flex items-center gap-8">
+                        {navLinks.map((link, linkIndex) => (
                             <div
                                 key={link.name}
-                                className="relative"
+                                className="relative group"
                                 onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                                 onMouseLeave={() => setActiveDropdown(null)}
                             >
-                                <Link
-                                    to={link.path}
-                                    className={`px-3 py-2 text-sm font-bold transition-all duration-300 flex items-center gap-1 rounded ${isActive(link.path)
-                                            ? 'text-white bg-primary'
-                                            : 'text-primary hover:bg-primary/10'
-                                        }`}
-                                    style={{ fontFamily: 'Poppins, sans-serif' }}
-                                >
-                                    {link.name}
-                                    {link.dropdown && <ChevronDown size={14} className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                                </Link>
+                                {link.dropdown ? (
+                                    <button
+                                        onClick={() => navigate(link.path)}
+                                        className={`px-4 py-3 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded relative overflow-hidden group/nav-link ${isActive(link.path)
+                                            ? 'text-white bg-primary shadow-lg'
+                                            : 'text-primary hover:text-white'
+                                            }`}
+                                        style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}
+                                    >
+                                        <span className="relative z-10">{link.name}</span>
+                                        <ChevronDown 
+                                            size={16} 
+                                            className={`transition-transform duration-300 relative z-10 ${activeDropdown === link.name ? 'rotate-180' : ''}`} 
+                                        />
+                                        {!isActive(link.path) && (
+                                            <span className="absolute inset-0 bg-primary opacity-0 group-hover/nav-link:opacity-100 transition-opacity duration-300 -z-0 rounded"></span>
+                                        )}
+                                    </button>
+                                ) : (
+                                    <Link
+                                        to={link.path}
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                        className={`px-4 py-3 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded relative overflow-hidden group/nav-link ${isActive(link.path)
+                                            ? 'text-white bg-primary shadow-lg'
+                                            : 'text-primary hover:text-white'
+                                            }`}
+                                        style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}
+                                    >
+                                        <span className="relative z-10">{link.name}</span>
+                                        {!isActive(link.path) && (
+                                            <span className="absolute inset-0 bg-primary opacity-0 group-hover/nav-link:opacity-100 transition-opacity duration-300 -z-0 rounded"></span>
+                                        )}
+                                    </Link>
+                                )}
 
                                 {/* Dropdown */}
                                 {link.dropdown && activeDropdown === link.name && (
-                                    <div className="absolute top-full left-0 bg-white shadow-xl border-t-4 border-secondary py-2 min-w-[200px] z-50">
-                                        {link.dropdown.map((item) => (
+                                    <div className="absolute top-full left-0 bg-white shadow-2xl border-t-4 border-secondary py-3 min-w-[220px] z-50 rounded-b-lg animate-fade-in-up origin-top">
+                                        {link.dropdown.map((item, itemIndex) => (
                                             <Link
                                                 key={item.name}
                                                 to={item.path}
-                                                className="block px-4 py-3 text-primary hover:bg-primary hover:text-white transition-colors text-sm font-medium"
+                                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                                className="block px-6 py-4 text-primary hover:text-white hover:bg-primary transition-all duration-300 text-sm font-medium border-l-4 border-transparent hover:border-secondary group/dropdown-item relative overflow-hidden"
                                                 style={{ fontFamily: 'Roboto, sans-serif' }}
                                             >
-                                                {item.name}
+                                                <span className="relative z-10 flex items-center gap-2">
+                                                    {item.name}
+                                                </span>
+                                                <span className="absolute inset-0 bg-primary opacity-0 group-hover/dropdown-item:opacity-100 transition-opacity duration-300 -z-0"></span>
                                             </Link>
                                         ))}
                                     </div>
@@ -137,16 +164,18 @@ const Header = () => {
                         {/* CTA Button */}
                         <Link
                             to="/enquiry"
-                            className="ml-4 bg-secondary text-primary px-5 py-2 font-bold text-sm hover:bg-secondary-dark transition-colors rounded shadow-md"
-                            style={{ fontFamily: 'Montserrat, sans-serif' }}
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="ml-6 bg-secondary text-primary px-8 py-3 font-bold text-sm hover:bg-secondary-dark transition-all duration-300 rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 relative overflow-hidden group/cta-btn"
+                            style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.5px' }}
                         >
-                            FREE COUNSELLING
+                            <span className="relative z-10 flex items-center gap-2">FREE COUNSELLING</span>
+                            <span className="absolute inset-0 bg-secondary-dark opacity-0 group-hover/cta-btn:opacity-100 transition-opacity duration-300 -z-0"></span>
                         </Link>
                     </nav>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="lg:hidden text-primary p-2 hover:bg-primary/10 rounded"
+                        className="lg:hidden text-primary p-2 hover:bg-primary/10 rounded transition-colors"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -156,27 +185,32 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
-                    <nav className="lg:hidden bg-white border-t border-gray-200 py-4 shadow-lg">
-                        <div className="container mx-auto px-4 flex flex-col gap-1">
+                    <nav className="lg:hidden bg-white border-t-2 border-gray-200 py-5 shadow-2xl animate-slide-in-up">
+                        <div className="container mx-auto px-4 flex flex-col gap-2">
                             {navLinks.map((link) => (
                                 <div key={link.name}>
                                     <button
                                         onClick={() => handleNavClick(link.path)}
-                                        className={`w-full text-left py-3 px-4 font-bold transition-colors rounded ${isActive(link.path) ? 'text-white bg-primary' : 'text-primary hover:bg-primary/10'
+                                        className={`w-full text-left py-3 px-5 font-bold transition-all duration-300 rounded relative overflow-hidden group/mobile-nav ${isActive(link.path) ? 'text-white bg-primary' : 'text-primary hover:text-white'
                                             }`}
-                                        style={{ fontFamily: 'Poppins, sans-serif' }}
+                                        style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}
                                     >
-                                        {link.name}
+                                        {!isActive(link.path) && (
+                                            <span className="absolute inset-0 bg-primary opacity-0 group-hover/mobile-nav:opacity-100 transition-opacity duration-300 -z-0"></span>
+                                        )}
+                                        <span className="relative z-10">{link.name}</span>
                                     </button>
                                     {link.dropdown && (
-                                        <div className="pl-6 py-2 bg-gray-50 rounded">
+                                        <div className="pl-8 py-3 bg-gray-50 rounded border-l-4 border-secondary">
                                             {link.dropdown.map((item) => (
                                                 <button
                                                     key={item.name}
                                                     onClick={() => handleNavClick(item.path)}
-                                                    className="w-full text-left py-2 px-4 text-primary/80 hover:text-primary text-sm font-medium"
+                                                    className="w-full text-left py-2 px-4 text-primary/80 hover:text-white text-sm font-medium transition-colors duration-300 rounded hover:bg-primary relative overflow-hidden group/mobile-dropdown"
+                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
                                                 >
-                                                    {item.name}
+                                                    <span className="absolute inset-0 bg-primary opacity-0 group-hover/mobile-dropdown:opacity-100 transition-opacity duration-300 -z-0"></span>
+                                                    <span className="relative z-10">{item.name}</span>
                                                 </button>
                                             ))}
                                         </div>
@@ -185,11 +219,12 @@ const Header = () => {
                             ))}
                             <Link
                                 to="/enquiry"
-                                className="mt-4 bg-secondary text-primary px-6 py-3 font-bold text-center rounded shadow"
-                                style={{ fontFamily: 'Montserrat, sans-serif' }}
+                                className="mt-6 bg-secondary text-primary px-6 py-4 font-bold text-center rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-secondary-dark transform hover:-translate-y-1 active:scale-95 relative overflow-hidden group/mobile-cta"
+                                style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.5px' }}
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                FREE COUNSELLING
+                                <span className="absolute inset-0 bg-secondary-dark opacity-0 group-hover/mobile-cta:opacity-100 transition-opacity duration-300 -z-0"></span>
+                                <span className="relative z-10">FREE COUNSELLING</span>
                             </Link>
                         </div>
                     </nav>

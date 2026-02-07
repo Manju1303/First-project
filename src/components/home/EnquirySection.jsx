@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Send, User, Phone, Mail, MessageSquare, BookOpen, CheckCircle } from 'lucide-react';
+import { Send, User, Phone, Mail, BookOpen, CheckCircle, MessageSquare, ArrowRight } from 'lucide-react';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 const EnquirySection = () => {
+    const sectionRef = useScrollReveal();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -22,6 +24,7 @@ const EnquirySection = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1500));
         setIsSubmitting(false);
         setSubmitted(true);
@@ -47,166 +50,223 @@ const EnquirySection = () => {
     ];
 
     const benefits = [
-        "Personalized career assessment",
-        "Course & college recommendations",
-        "Scholarship guidance",
-        "Admission process support"
+        { title: "Expert Counselling", desc: "Get guidance from industry veterans." },
+        { title: "Course Selection", desc: "Find the perfect course for your goals." },
+        { title: "College Admissions", desc: "Hassle-free prediction & admission process." },
+        { title: "Scholarship Support", desc: "Financial aid and scholarship assistance." }
     ];
 
     return (
-        <section className="bg-primary py-16 md:py-20">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
-                    {/* Left Content */}
-                    <div className="lg:w-1/2 text-white">
-                        <span className="inline-block bg-secondary text-primary px-6 py-2 font-bold text-sm mb-6 rounded"
-                            style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                            FREE COUNSELLING
-                        </span>
+        <section className="py-28 bg-gradient-to-br from-primary via-primary-dark to-primary-light relative overflow-hidden scroll-reveal" id="enquiry" ref={sectionRef}>
+            {/* Background Elements */}
+            <div className="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-float-slow"></div>
 
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 leading-tight"
-                            style={{ fontFamily: 'Poppins, sans-serif' }}>
-                            Get <span className="text-secondary">Expert Guidance</span><br />For Your Career
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-stretch">
+
+                    {/* Left Content - Information */}
+                    <div className="lg:w-1/2 text-white flex flex-col justify-center animate-slide-in-left scroll-reveal" style={{ animationDelay: '0s' }}>
+                        <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 backdrop-blur-sm px-5 py-3 rounded-full w-fit mb-8">
+                            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                            <span className="text-secondary font-bold text-xs tracking-widest uppercase" style={{ fontFamily: 'Montserrat, sans-serif' }}>Free Consultation</span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight scroll-reveal"
+                            style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}>
+                            Shape Your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">Future Today</span>
                         </h2>
 
-                        <p className="text-white/80 text-base mb-8 leading-relaxed"
-                            style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            Our experienced counsellors will help you choose the right course and college based on your interests, aptitude, and career goals. Book your free session now!
+                        <p className="text-white/85 text-base md:text-lg mb-12 leading-relaxed max-w-xl scroll-reveal"
+                            style={{ fontFamily: 'Roboto, sans-serif', lineHeight: '1.8' }}>
+                            Confused about your career path? Our expert counsellors are here to guide you through every step of your educational journey.
                         </p>
 
-                        <div className="space-y-4">
-                            {benefits.map((item, index) => (
-                                <div key={index} className="flex items-center gap-3">
-                                    <div className="w-6 h-6 bg-secondary flex items-center justify-center rounded flex-shrink-0">
-                                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mb-12">
+                            {benefits.map((item, index) => {
+                                const benefitRef = useScrollReveal({ rootMargin: '0px 0px -50px 0px' });
+                                return (
+                                    <div key={index} ref={benefitRef} className="flex gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:translate-x-2 scroll-reveal scroll-reveal-delay-1" style={{ animationDelay: `${index * 0.1}s` }}>
+                                        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg">
+                                            <CheckCircle className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-white text-base mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{item.title}</h4>
+                                            <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: 'Roboto, sans-serif' }}>{item.desc}</p>
+                                        </div>
                                     </div>
-                                    <span className="text-white/90 text-base" style={{ fontFamily: 'Roboto, sans-serif' }}>{item}</span>
-                                </div>
-                            ))}
+                                );
+                            })}
+                        </div>
+
+                        <div className="mt-auto hidden lg:block pt-4 border-t border-white/20">
+                            <p className="text-white/60 text-sm italic leading-relaxed" style={{ fontFamily: 'Georgia, serif' }}>
+                                "Education is the passport to the future, for tomorrow belongs to those who prepare for it today."
+                            </p>
                         </div>
                     </div>
 
-                    {/* Right - Form */}
-                    <div className="lg:w-1/2">
-                        <div className="bg-white p-6 md:p-8 rounded-lg shadow-2xl">
-                            <h3 className="text-xl font-bold text-primary mb-6 text-center"
-                                style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                Book Your Free Session
-                            </h3>
+                    {/* Right Content - Form Card */}
+                    <div className="lg:w-1/2 animate-slide-in-right scroll-reveal" style={{ animationDelay: '0.2s' }}>
+                        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20 transform hover:-translate-y-2 transition-all duration-300 scroll-reveal">
+                            <div className="bg-secondary py-5 px-10">
+                                <h3 className="text-xl font-bold text-primary flex items-center gap-3"
+                                    style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}>
+                                    <MessageSquare className="w-6 h-6" />
+                                    Book Your Free Session
+                                </h3>
+                            </div>
 
-                            {submitted ? (
-                                <div className="text-center py-10">
-                                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <CheckCircle className="w-10 h-10 text-green-500" />
-                                    </div>
-                                    <h4 className="text-xl font-bold text-primary mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                        Thank You!
-                                    </h4>
-                                    <p className="text-text-dark/70" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                        We'll contact you within 24 hours.
-                                    </p>
-                                </div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-4">
-                                    {/* Name */}
-                                    <div className="relative">
-                                        <User className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 w-5 h-5" />
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            placeholder="Your Full Name *"
-                                            required
-                                            className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 focus:border-primary rounded text-sm bg-white"
-                                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                                        />
-                                    </div>
-
-                                    {/* Phone */}
-                                    <div className="relative">
-                                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 w-5 h-5" />
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            placeholder="Mobile Number *"
-                                            required
-                                            className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 focus:border-primary rounded text-sm bg-white"
-                                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                                        />
-                                    </div>
-
-                                    {/* Email */}
-                                    <div className="relative">
-                                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 w-5 h-5" />
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            placeholder="Email Address"
-                                            className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 focus:border-primary rounded text-sm bg-white"
-                                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                                        />
-                                    </div>
-
-                                    {/* Course Interest */}
-                                    <div className="relative">
-                                        <BookOpen className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 w-5 h-5" />
-                                        <select
-                                            name="course"
-                                            value={formData.course}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 focus:border-primary rounded text-sm bg-white appearance-none"
-                                            style={{ fontFamily: 'Roboto, sans-serif' }}
+                            <div className="p-10">
+                                {submitted ? (
+                                    <div className="text-center py-20">
+                                        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce-subtle">
+                                            <CheckCircle className="w-12 h-12 text-green-600" />
+                                        </div>
+                                        <h4 className="text-2xl font-bold text-primary mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                            Request Sent!
+                                        </h4>
+                                        <p className="text-text-dark/70 text-base md:text-lg mb-8 max-w-sm mx-auto leading-relaxed" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                                            Thank you for reaching out. Our expert guidance team will contact you within 24 hours.
+                                        </p>
+                                        <button
+                                            onClick={() => setSubmitted(false)}
+                                            className="text-primary font-semibold hover:text-primary-dark underline transition-colors"
                                         >
-                                            <option value="">Select Course Interest *</option>
-                                            {courseOptions.map((course) => (
-                                                <option key={course} value={course}>{course}</option>
-                                            ))}
-                                        </select>
+                                            Submit another response
+                                        </button>
                                     </div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="space-y-8">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                                            {/* Name */}
+                                            <div className="relative group">
+                                                <label className="block text-sm font-semibold text-gray-700 mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                                    Full Name <span className="text-red-500">*</span>
+                                                </label>
+                                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-10">
+                                                    <User className="h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors duration-300" />
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter your full name"
+                                                    required
+                                                    className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none text-sm font-medium text-gray-700 placeholder-gray-400 hover:border-gray-300"
+                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
+                                                />
+                                            </div>
 
-                                    {/* Message */}
-                                    <div className="relative">
-                                        <MessageSquare className="absolute left-3 top-3 text-primary/50 w-5 h-5" />
-                                        <textarea
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            placeholder="Your Message (Optional)"
-                                            rows="3"
-                                            className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 focus:border-primary rounded text-sm bg-white resize-none"
-                                            style={{ fontFamily: 'Roboto, sans-serif' }}
-                                        ></textarea>
-                                    </div>
+                                            {/* Phone */}
+                                            <div className="relative group">
+                                                <label className="block text-sm font-semibold text-gray-700 mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                                    Phone Number <span className="text-red-500">*</span>
+                                                </label>
+                                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-10">
+                                                    <Phone className="h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors duration-300" />
+                                                </div>
+                                                <input
+                                                    type="tel"
+                                                    name="phone"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter your phone number"
+                                                    required
+                                                    className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none text-sm font-medium text-gray-700 placeholder-gray-400 hover:border-gray-300"
+                                                    style={{ fontFamily: 'Roboto, sans-serif' }}
+                                                />
+                                            </div>
+                                        </div>
 
-                                    {/* Submit Button */}
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full bg-secondary text-primary py-3 font-bold text-base flex items-center justify-center gap-2 hover:bg-secondary-dark transition-colors disabled:opacity-70 rounded shadow-md"
-                                        style={{ fontFamily: 'Montserrat, sans-serif' }}
-                                    >
-                                        {isSubmitting ? (
-                                            <span className="animate-pulse">Submitting...</span>
-                                        ) : (
-                                            <>
-                                                Get Free Counselling
-                                                <Send size={18} />
-                                            </>
-                                        )}
-                                    </button>
-                                </form>
-                            )}
+                                        {/* Email */}
+                                        <div className="relative group">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                                Email Address <span className="text-gray-400 text-xs">(Optional)</span>
+                                            </label>
+                                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-10">
+                                                <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors duration-300" />
+                                            </div>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                placeholder="Enter your email address"
+                                                className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none text-sm font-medium text-gray-700 placeholder-gray-400 hover:border-gray-300"
+                                                style={{ fontFamily: 'Roboto, sans-serif' }}
+                                            />
+                                        </div>
 
-                            <p className="text-center text-text-dark/60 text-xs mt-4 flex items-center justify-center gap-2" style={{ fontFamily: 'Roboto, sans-serif' }}>
-                                <Phone className="w-3 h-3" />
-                                Or call us: <a href="tel:+919865921258" className="text-primary font-semibold">+91 98659 21258</a>
-                            </p>
+                                        {/* Course Interest */}
+                                        <div className="relative group">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                                Select Interested Course <span className="text-red-500">*</span>
+                                            </label>
+                                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-10">
+                                                <BookOpen className="h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors duration-300" />
+                                            </div>
+                                            <select
+                                                name="course"
+                                                value={formData.course}
+                                                onChange={handleChange}
+                                                required
+                                                className="w-full pl-12 pr-12 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none text-sm font-medium text-gray-700 appearance-none cursor-pointer hover:border-gray-300"
+                                                style={{ fontFamily: 'Roboto, sans-serif' }}
+                                            >
+                                                <option value="" className="text-gray-400">Choose a course</option>
+                                                {courseOptions.map((course) => (
+                                                    <option key={course} value={course}>{course}</option>
+                                                ))}
+                                            </select>
+                                            <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none top-10">
+                                                <ArrowRight className="h-4 w-4 text-gray-400 transform rotate-90" />
+                                            </div>
+                                        </div>
+
+                                        {/* Message */}
+                                        <div className="relative group">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                                Your Message <span className="text-gray-400 text-xs">(Optional)</span>
+                                            </label>
+                                            <div className="absolute top-10 left-4 flex items-start pointer-events-none">
+                                                <MessageSquare className="h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors duration-300 mt-2" />
+                                            </div>
+                                            <textarea
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                placeholder="Tell us how we can help you..."
+                                                rows="5"
+                                                className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none text-sm font-medium text-gray-700 placeholder-gray-400 resize-none hover:border-gray-300"
+                                                style={{ fontFamily: 'Roboto, sans-serif' }}
+                                            ></textarea>
+                                        </div>
+
+                                        {/* Submit Button */}
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-primary text-white py-5 font-bold text-base tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-primary-dark transition-all duration-300 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed active:scale-95"
+                                            style={{ fontFamily: 'Montserrat, sans-serif' }}
+                                        >
+                                            {isSubmitting ? (
+                                                <span className="flex items-center gap-2">
+                                                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                                                    Processing...
+                                                </span>
+                                            ) : (
+                                                <>
+                                                    Get Free Guidance
+                                                    <Send size={20} />
+                                                </>
+                                            )}
+                                        </button>
+                                    </form>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
