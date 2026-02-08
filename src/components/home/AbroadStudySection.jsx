@@ -17,18 +17,18 @@ const AbroadStudySection = () => {
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-10 animate-fade-in-up">
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary mb-4"
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary mb-4"
                         style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '1px' }}>
                         ABROAD STUDY
                     </h2>
-                    <p className="text-primary/80 max-w-2xl mx-auto text-sm md:text-base font-medium leading-relaxed mt-2"
+                    <p className="text-primary/80 max-w-2xl mx-auto text-sm sm:text-base font-medium leading-relaxed mt-2"
                         style={{ fontFamily: 'Roboto, sans-serif' }}>
                         Your gateway to world-class education. Discover opportunities in top universities across the globe.
                     </p>
                 </div>
 
-                {/* Countries Grid - 5 columns on large screens, 4 on medium */}
-                <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-10 gap-6 lg:gap-5 mb-10">
+                {/* Countries Grid - 3 columns on mobile, 5 on medium, 10 on large */}
+                <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-4 lg:gap-5 mb-10">
                     {abroadCountries.map((country, index) => {
                         const countryRef = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
                         return (
@@ -59,7 +59,7 @@ const AbroadStudySection = () => {
                 </div>
 
                 {/* Features Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-5 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-16">
                     {features.map((feature, index) => {
                         const IconComponent = feature.icon;
                         const featureRef = useScrollReveal({ rootMargin: '0px 0px -50px 0px' });
@@ -67,7 +67,7 @@ const AbroadStudySection = () => {
                             <div
                                 key={feature.title}
                                 ref={featureRef}
-                                className="bg-primary text-white p-7 text-center hover:bg-primary-dark hover:-translate-y-2 transition-all duration-300 animate-fade-in-up rounded-xl shadow-lg hover:shadow-2xl scroll-reveal scroll-reveal-delay-1"
+                                className="bg-primary text-white p-5 md:p-7 text-center hover:bg-primary-dark hover:-translate-y-2 transition-all duration-300 animate-fade-in-up rounded-xl shadow-lg hover:shadow-2xl scroll-reveal scroll-reveal-delay-1"
                                 style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                             >
                                 <div className="w-16 h-16 bg-secondary rounded-full mx-auto mb-4 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
