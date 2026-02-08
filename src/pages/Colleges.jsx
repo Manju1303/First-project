@@ -1,8 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { MapPin, Phone, ExternalLink } from 'lucide-react';
 import { collegeZones } from '../data/courses';
 import EnquirySection from '../components/home/EnquirySection';
 
 const Colleges = () => {
+    const navigate = useNavigate();
+
+    const handleCollegeClick = (college) => {
+        navigate('/enquiry', { state: { college } });
+    };
+
     return (
         <main>
             {/* Hero Section */}
@@ -74,6 +81,7 @@ const Colleges = () => {
                                     <ul className="space-y-3">
                                         {zone.colleges.map((college, idx) => (
                                             <li key={idx}
+                                                onClick={() => handleCollegeClick(college)}
                                                 className="text-white/90 text-sm flex items-start gap-2 hover:text-secondary transition-colors cursor-pointer group/item"
                                                 style={{ fontFamily: 'Roboto, sans-serif' }}>
                                                 <span className="text-secondary mt-0.5">✓</span>
@@ -84,7 +92,9 @@ const Colleges = () => {
                                     </ul>
 
                                     <div className="mt-6 pt-4 border-t border-white/10">
-                                        <button className="text-secondary text-sm font-semibold hover:underline"
+                                        <button
+                                            onClick={() => navigate('/enquiry')}
+                                            className="text-secondary text-sm font-semibold hover:underline"
                                             style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             + View More Colleges
                                         </button>
