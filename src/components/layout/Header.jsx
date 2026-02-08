@@ -73,22 +73,22 @@ const Header = () => {
             </div>
 
             {/* Main Header - White with Logo */}
-            <div className="bg-white py-4 border-b-4 border-primary">
+            <div className="bg-white py-3 md:py-4 border-b-4 border-primary">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/" className="flex items-center gap-2 md:gap-3 group" onClick={() => window.scrollTo(0, 0)}>
                         {/* Logo Image */}
                         <img
                             src="/logo.png"
                             alt="INSTA Logo"
-                            className="h-14 md:h-16 w-auto transform group-hover:scale-110 transition-transform duration-300"
+                            className="h-10 md:h-16 w-auto transform group-hover:scale-110 transition-transform duration-300"
                         />
-                        <div>
-                            <h1 className="text-primary text-lg md:text-xl font-extrabold tracking-wide leading-tight"
+                        <div className="flex flex-col">
+                            <h1 className="text-primary text-base md:text-xl font-extrabold tracking-wide leading-tight"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 INSTA EDUCATIONAL
                             </h1>
-                            <p className="text-primary text-xs md:text-sm font-semibold tracking-widest"
+                            <p className="text-primary text-[10px] md:text-sm font-semibold tracking-widest"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 GUIDANCE CENTRE
                             </p>
@@ -114,9 +114,9 @@ const Header = () => {
                                         style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}
                                     >
                                         <span className="relative z-10">{link.name}</span>
-                                        <ChevronDown 
-                                            size={16} 
-                                            className={`transition-transform duration-300 relative z-10 ${activeDropdown === link.name ? 'rotate-180' : ''}`} 
+                                        <ChevronDown
+                                            size={16}
+                                            className={`transition-transform duration-300 relative z-10 ${activeDropdown === link.name ? 'rotate-180' : ''}`}
                                         />
                                         {!isActive(link.path) && (
                                             <span className="absolute inset-0 bg-primary opacity-0 group-hover/nav-link:opacity-100 transition-opacity duration-300 -z-0 rounded"></span>
