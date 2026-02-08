@@ -120,7 +120,7 @@ const HeroSection = () => {
 
                     {/* Student Image - Girl with colorful books */}
                     <div className="relative animate-slide-in-right">
-                        <div className="w-72 h-96 lg:w-[450px] lg:h-[600px] rounded-t-full overflow-hidden shadow-2xl bg-gradient-to-b from-gray-100 to-gray-200 border-4 border-white">
+                        <div className="w-full max-w-[18rem] h-96 lg:max-w-[450px] lg:w-[450px] lg:h-[600px] rounded-t-full overflow-hidden shadow-2xl bg-gradient-to-b from-gray-100 to-gray-200 border-4 border-white">
                             {/* Using local student image */}
                             <img
                                 src="/student.jpg"
