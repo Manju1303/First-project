@@ -21,17 +21,33 @@ const EnquirySection = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setTimeout(() => {
-            setSubmitted(false);
-            setFormData({ name: '', phone: '', email: '', course: '', message: '' });
-        }, 3000);
+
+        const encode = (data) => {
+            return Object.keys(data)
+                .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                .join("&");
+        };
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "enquiry", ...formData }),
+        })
+            .then(() => {
+                setSubmitted(true);
+                setFormData({
+                    name: '',
+                    phone: '',
+                    email: '',
+                    course: '',
+                    message: ''
+                });
+            })
+            .catch((error) => alert(error))
+            .finally(() => setIsSubmitting(false));
     };
 
     const courseOptions = [
@@ -137,7 +153,8 @@ const EnquirySection = () => {
                                         </button>
                                     </div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-8">
+                                    <form name="enquiry" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-8">
+                                        <input type="hidden" name="form-name" value="enquiry" />
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                                             {/* Name */}
                                             <div className="group">

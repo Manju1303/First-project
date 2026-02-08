@@ -39,6 +39,15 @@
     </script>
   </head>
   <body>
+    <!-- Netlify Form Detection -->
+    <form name="enquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="course" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
