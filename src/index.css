@@ -325,7 +325,7 @@ section {
   margin-bottom: 0.5rem;
 }
 
-section > div {
+section>div {
   gap: 1.5rem;
 }
 
@@ -335,19 +335,29 @@ p {
   word-spacing: 2px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   letter-spacing: 0.75px;
   margin-bottom: 1rem;
 }
 
 /* Improved Button Styles */
-button, .btn-primary, .btn-secondary, a[class*="btn"] {
+button,
+.btn-primary,
+.btn-secondary,
+a[class*="btn"] {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-button::before, .btn-primary::before, .btn-secondary::before {
+button::before,
+.btn-primary::before,
+.btn-secondary::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -360,7 +370,9 @@ button::before, .btn-primary::before, .btn-secondary::before {
   transition: width 0.6s, height 0.6s;
 }
 
-button:active::before, .btn-primary:active::before, .btn-secondary:active::before {
+button:active::before,
+.btn-primary:active::before,
+.btn-secondary:active::before {
   width: 300px;
   height: 300px;
 }
@@ -390,12 +402,19 @@ a:not([class]):hover::after {
 .guide-box {
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
   border-radius: 12px;
+  border-radius: 12px;
   padding: 3rem;
   text-align: center;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .guide-box {
+    padding: 1.5rem;
+  }
 }
 
 .guide-box::before {
@@ -503,6 +522,7 @@ html {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -514,6 +534,7 @@ html {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -525,6 +546,7 @@ html {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -536,6 +558,7 @@ html {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -605,27 +628,36 @@ html {
 
 /* Float Animations */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-15px);
   }
 }
 
 @keyframes floatSlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes floatFast {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -674,12 +706,21 @@ html {
 }
 
 /* Button Click Animation */
-button, a[class*="btn"], .group/nav-link, .group/cta-btn, .group/mobile-nav, .group/mobile-cta, .group/mobile-dropdown {
+/* Button Click Animation */
+button,
+a[class*="btn"],
+.group\/nav-link,
+.group\/cta-btn,
+.group\/mobile-nav,
+.group\/mobile-cta,
+.group\/mobile-dropdown {
   position: relative;
 }
 
 /* Form Focus Animations */
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   animation: fieldGlow 0.4s ease-out 1;
 }
 
@@ -687,20 +728,26 @@ input:focus, select:focus, textarea:focus {
   0% {
     box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.3);
   }
+
   70% {
     box-shadow: 0 0 0 8px rgba(25, 118, 210, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
   }
 }
 
 /* Enhanced Input Animations */
-input, select, textarea {
+input,
+select,
+textarea {
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-input:hover, select:hover, textarea:hover {
+input:hover,
+select:hover,
+textarea:hover {
   border-color: #1976D2;
   background-color: white;
 }
@@ -734,6 +781,7 @@ button:active::after {
     height: 0;
     opacity: 1;
   }
+
   100% {
     width: 300px;
     height: 300px;
@@ -742,11 +790,13 @@ button:active::after {
 }
 
 /* Navigation Link Enhancements */
-a, button {
+a,
+button {
   position: relative;
 }
 
-a::before, button::before {
+a::before,
+button::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -763,6 +813,7 @@ a::before, button::before {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -783,23 +834,33 @@ a::before, button::before {
 }
 
 /* Checkbox \& Radio Animations */
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   transition: all 0.3s ease;
 }
 
-input[type="checkbox"]:checked, input[type="radio"]:checked {
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
   transform: scale(1.1);
 }
 
 /* Text Input Underline Effect */
-input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
   position: relative;
   background: linear-gradient(to right, white, white) no-repeat right bottom / 0% 2px;
   background-color: #f9f9f9;
   transition: background-size 0.35s ease;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus, textarea:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
   background-size: 100% 2px;
   background-color: white;
 }
@@ -815,7 +876,11 @@ button:active:not(:disabled) {
 }
 
 /* Smooth transitions for all interactive elements */
-a, button, input, select, textarea {
+a,
+button,
+input,
+select,
+textarea {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -825,6 +890,7 @@ a, button, input, select, textarea {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -844,9 +910,12 @@ a, button, input, select, textarea {
 
 /* Success Message Animation */
 @keyframes successBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -858,12 +927,16 @@ a, button, input, select, textarea {
 
 /* Input Error Animation */
 @keyframes shake {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
+
   25% {
     transform: translateX(-5px);
   }
+
   75% {
     transform: translateX(5px);
   }
@@ -879,6 +952,7 @@ a, button, input, select, textarea {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

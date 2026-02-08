@@ -51,10 +51,10 @@ const CoursesSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-white scroll-reveal" ref={sectionRef}>
+        <section className="py-12 lg:py-20 bg-white scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4">
                 {/* Section Header */}
-                <div className="text-center mb-16 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
+                <div className="text-center mb-10 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
                     <span className="inline-block bg-secondary px-8 py-3 text-primary font-bold text-sm mb-8 rounded scroll-reveal"
                         style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '1px' }}>
                         COURSES OFFERED

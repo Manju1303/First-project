@@ -5,6 +5,7 @@ import CenteredGuideBox from '../components/home/CenteredGuideBox';
 import AbroadStudySection from '../components/home/AbroadStudySection';
 import CollegesSection from '../components/home/CollegesSection';
 import EnquirySection from '../components/home/EnquirySection';
+import AchievementsSection from '../components/home/AchievementsSection';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <CoursesSection />
             <CenteredGuideBox />
             <AbroadStudySection />
+            <AchievementsSection />
             <CollegesSection />
             <EnquirySection />
         </div>

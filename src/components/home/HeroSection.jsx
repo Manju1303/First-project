@@ -11,29 +11,19 @@ const HeroSection = () => {
     ];
 
     return (
-        <section className="bg-white min-h-[600px] lg:min-h-[650px]">
+        <section className="bg-white min-h-[auto] lg:min-h-[600px]">
             {/* Yellow Top Banner */}
-            <div className="bg-secondary h-12 w-full"></div>
+            <div className="bg-secondary h-8 lg:h-12 w-full"></div>
 
-            <div className="flex flex-col lg:flex-row min-h-[550px]">
+            <div className="flex flex-col lg:flex-row min-h-[auto] lg:min-h-[550px]">
                 {/* Left Side - Blue Section */}
-                {/* Left Side - Blue Section */}
-                <div className="bg-primary lg:w-1/2 py-10 lg:py-20 px-8 lg:px-16 flex flex-col justify-center relative">
+                <div className="bg-primary lg:w-1/2 py-8 lg:py-20 px-6 lg:px-16 flex flex-col justify-center relative">
                     <div className="max-w-xl mx-auto lg:mx-0">
                         {/* Tagline */}
-                        <BlurText
-                            text="Guidance for"
-                            delay={100}
-                            className="text-lg md:text-xl font-light italic text-white/90 mb-5"
-                            direction="top"
-                            stepDuration={0.3}
-                            animateBy="words"
-                            easing={(t) => t}
-                            style={{ fontFamily: 'Georgia, serif' }}
-                        />
+
 
                         {/* Services List */}
-                        <div className="space-y-8 mb-10">
+                        <div className="space-y-6 mb-8">
                             {services.map((service, index) => {
                                 const IconComponent = service.icon;
                                 return (
@@ -60,7 +50,7 @@ const HeroSection = () => {
                         </div>
 
                         {/* Support Message */}
-                        <div className="mb-10">
+                        <div className="mb-8">
                             <BlurText
                                 text="We are here to SUPPORT YOU"
                                 delay={150}

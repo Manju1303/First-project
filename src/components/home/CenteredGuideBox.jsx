@@ -25,7 +25,7 @@ const CenteredGuideBox = () => {
     ];
 
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
                 {/* Main Guide Box */}
                 <div className="guide-box animate-fade-in-up">
@@ -33,10 +33,10 @@ const CenteredGuideBox = () => {
                         <h3 style={{ fontFamily: 'Poppins, sans-serif' }}>
                             Your Complete Educational Guide
                         </h3>
-                        
+
                         <p style={{ fontFamily: 'Roboto, sans-serif' }}>
-                            At INSTA Educational Guidance Centre, we believe in empowering students 
-                            with the right knowledge and guidance to make informed decisions about 
+                            At INSTA Educational Guidance Centre, we believe in empowering students
+                            with the right knowledge and guidance to make informed decisions about
                             their educational future.
                         </p>
 
@@ -46,7 +46,7 @@ const CenteredGuideBox = () => {
                                 <div
                                     key={index}
                                     className="guide-box-item animate-fade-in-up"
-                                    style={{ 
+                                    style={{
                                         animationDelay: `${index * 0.1}s`,
                                         fontFamily: 'Roboto, sans-serif'
                                     }}
