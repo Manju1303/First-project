@@ -40,7 +40,7 @@ const Footer = () => {
                             <img
                                 src="/logo.png"
                                 alt="INSTA Logo"
-                                className="h-10 w-auto bg-white p-1 rounded"
+                                className="h-10 w-auto bg-white p-1 rounded object-contain"
                             />
                             <div>
                                 <h3 className="text-sm font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>INSTA</h3>

@@ -81,7 +81,7 @@ const Header = () => {
                         <img
                             src="/logo.png"
                             alt="INSTA Logo"
-                            className="h-14 md:h-16 w-auto transform group-hover:scale-110 transition-transform duration-300"
+                            className="h-20 md:h-28 w-auto object-contain transform group-hover:scale-110 transition-transform duration-300"
                         />
                         <div>
                             <h1 className="text-primary text-lg md:text-xl font-extrabold tracking-wide leading-tight"
@@ -114,9 +114,9 @@ const Header = () => {
                                         style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '0.5px' }}
                                     >
                                         <span className="relative z-10">{link.name}</span>
-                                        <ChevronDown 
-                                            size={16} 
-                                            className={`transition-transform duration-300 relative z-10 ${activeDropdown === link.name ? 'rotate-180' : ''}`} 
+                                        <ChevronDown
+                                            size={16}
+                                            className={`transition-transform duration-300 relative z-10 ${activeDropdown === link.name ? 'rotate-180' : ''}`}
                                         />
                                         {!isActive(link.path) && (
                                             <span className="absolute inset-0 bg-primary opacity-0 group-hover/nav-link:opacity-100 transition-opacity duration-300 -z-0 rounded"></span>
