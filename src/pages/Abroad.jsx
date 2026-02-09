@@ -69,11 +69,11 @@ const Abroad = () => {
                         {abroadCountries.map((country, index) => (
                             <div
                                 key={country.name}
-                                className="bg-white p-4 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up cursor-pointer group rounded-lg"
+                                className="bg-white p-4 flex flex-col items-center justify-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up cursor-pointer group rounded-lg h-full gap-3"
                                 style={{ animationDelay: `${index * 0.05}s` }}
                             >
                                 {/* Flag Image */}
-                                <div className="w-16 h-16 mx-auto mb-4 bg-primary rounded-full flex items-center justify-center overflow-hidden border-4 border-secondary group-hover:scale-110 transition-transform p-1">
+                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center overflow-hidden border-4 border-secondary group-hover:scale-110 transition-transform p-1">
                                     <img
                                         src={country.flag}
                                         alt={`${country.name} Flag`}
@@ -83,7 +83,7 @@ const Abroad = () => {
                                 </div>
 
                                 {/* Country Name */}
-                                <h3 className="text-primary font-bold text-sm"
+                                <h3 className="text-primary font-bold text-sm text-center"
                                     style={{ fontFamily: 'Poppins, sans-serif' }}>
                                     {country.name}
                                 </h3>
