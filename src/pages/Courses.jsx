@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { engineeringCourses, medicalCourses, diplomaCourses, artsScienceCourses, lawCourses } from '../data/courses';
@@ -6,7 +6,12 @@ import EnquirySection from '../components/home/EnquirySection';
 
 const Courses = () => {
     const { category } = useParams();
+    const navigate = useNavigate();
     const [expandedSection, setExpandedSection] = useState(null);
+
+    const handleCourseClick = (course) => {
+        navigate('/enquiry', { state: { course } });
+    };
 
     const allCourses = {
         engineering: {
@@ -14,9 +19,8 @@ const Courses = () => {
             icon: "⚙️",
             description: "Explore cutting-edge engineering programs across various disciplines",
             sections: [
-                { title: "Undergraduate (UG)", courses: engineeringCourses.ug },
-                { title: "Postgraduate (PG)", courses: engineeringCourses.pg },
-                { title: "Specializations", courses: engineeringCourses.specializations }
+                { title: "B.E / B.Tech", courses: engineeringCourses.beTech },
+                { title: "M.E / M.Tech", courses: engineeringCourses.mTech }
             ]
         },
         medical: {
@@ -24,8 +28,11 @@ const Courses = () => {
             icon: "🏥",
             description: "Pursue your dream of serving in healthcare with top medical programs",
             sections: [
-                { title: "Undergraduate (UG)", courses: medicalCourses.ug },
-                { title: "Postgraduate (PG)", courses: medicalCourses.pg }
+                { title: "Medical (MBBS/BDS)", courses: medicalCourses.mbbs },
+                { title: "Nursing", courses: medicalCourses.nursing },
+                { title: "Pharmacy", courses: medicalCourses.pharmacy },
+                { title: "Physiotherapy", courses: medicalCourses.physiotherapy },
+                { title: "Alternative Medicine", courses: medicalCourses.alternativeMedicine }
             ]
         },
         "arts-science": {
@@ -136,7 +143,8 @@ const Courses = () => {
                                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                                         {section.courses.map((course, courseIndex) => (
                                                             <div key={courseIndex}
-                                                                className="flex items-start gap-2 text-white/90 hover:text-white transition-colors"
+                                                                onClick={() => handleCourseClick(course)}
+                                                                className="flex items-start gap-2 text-white/90 hover:text-white transition-colors cursor-pointer hover:bg-white/10 p-2 rounded"
                                                                 style={{ fontFamily: 'Roboto, sans-serif' }}>
                                                                 <span className="text-secondary mt-0.5">•</span>
                                                                 <span>{course}</span>

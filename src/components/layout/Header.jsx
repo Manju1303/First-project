@@ -73,22 +73,22 @@ const Header = () => {
             </div>
 
             {/* Main Header - White with Logo */}
-            <div className="bg-white py-4 border-b-4 border-primary">
+            <div className="bg-white py-3 md:py-4 border-b-4 border-primary">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/" className="flex items-center gap-2 md:gap-3 group" onClick={() => window.scrollTo(0, 0)}>
                         {/* Logo Image */}
                         <img
                             src="/logo.png"
                             alt="INSTA Logo"
                             className="h-20 md:h-28 w-auto object-contain transform group-hover:scale-110 transition-transform duration-300"
                         />
-                        <div>
-                            <h1 className="text-primary text-lg md:text-xl font-extrabold tracking-wide leading-tight"
+                        <div className="flex flex-col">
+                            <h1 className="text-primary text-base md:text-xl font-extrabold tracking-wide leading-tight"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 INSTA EDUCATIONAL
                             </h1>
-                            <p className="text-primary text-xs md:text-sm font-semibold tracking-widest"
+                            <p className="text-primary text-[10px] md:text-sm font-semibold tracking-widest"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 GUIDANCE CENTRE
                             </p>

@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Send, User, Phone, Mail, MessageSquare, BookOpen, MapPin, CheckCircle } from 'lucide-react';
 
 const Enquiry = () => {
+    const location = useLocation();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -11,6 +13,22 @@ const Enquiry = () => {
         location: '',
         message: ''
     });
+
+    useEffect(() => {
+        if (location.state) {
+            setFormData(prev => ({
+                ...prev,
+                course: location.state.course || prev.course,
+                college: location.state.college || prev.college,
+                message: location.state.course
+                    ? `I am interested in ${location.state.course}`
+                    : location.state.college
+                        ? `I am interested in admission at ${location.state.college}`
+                        : prev.message
+            }));
+        }
+    }, [location.state]);
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 

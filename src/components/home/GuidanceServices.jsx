@@ -11,21 +11,21 @@ const iconMap = {
 
 const GuidanceServices = () => {
     const sectionRef = useScrollReveal();
-    
+
     return (
-        <section className="py-24 bg-bg-light scroll-reveal" ref={sectionRef}>
+        <section className="py-12 bg-bg-light scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4">
                 {/* Section Header */}
-                <div className="text-center mb-16 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
-                    <span className="inline-block bg-secondary px-8 py-3 text-primary font-bold text-sm mb-8 rounded scroll-reveal"
+                <div className="text-center mb-10 animate-fade-in-up" style={{ animationDelay: '0s' }}>
+                    <span className="inline-block bg-secondary px-8 py-3 text-primary font-bold text-sm mb-4 rounded"
                         style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '1px' }}>
                         OUR SERVICES
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-6 scroll-reveal"
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4"
                         style={{ fontFamily: 'Poppins, sans-serif', lineHeight: '1.4' }}>
                         Comprehensive Guidance Services
                     </h2>
-                    <p className="text-text-dark/70 max-w-3xl mx-auto text-base md:text-lg leading-relaxed scroll-reveal"
+                    <p className="text-text-dark/70 max-w-3xl mx-auto text-base md:text-lg leading-relaxed"
                         style={{ fontFamily: 'Roboto, sans-serif' }}>
                         We provide end-to-end support for your educational journey, from course selection to placement assistance.
                     </p>

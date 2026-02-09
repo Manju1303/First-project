@@ -51,15 +51,15 @@ const CoursesSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-white scroll-reveal" ref={sectionRef}>
+        <section className="py-12 lg:py-20 bg-white scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4">
                 {/* Section Header */}
-                <div className="text-center mb-16 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
+                <div className="text-center mb-10 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>
                     <span className="inline-block bg-secondary px-8 py-3 text-primary font-bold text-sm mb-8 rounded scroll-reveal"
                         style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '1px' }}>
                         COURSES OFFERED
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-6 scroll-reveal"
+                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-primary mb-6 scroll-reveal"
                         style={{ fontFamily: 'Poppins, sans-serif', lineHeight: '1.4' }}>
                         Explore Our Wide Range of Courses
                     </h2>
@@ -70,7 +70,7 @@ const CoursesSection = () => {
                 </div>
 
                 {/* Courses Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {courseCategories.map((category, index) => {
                         const IconComponent = category.icon;
                         const cardRef = useScrollReveal({ rootMargin: '0px 0px -50px 0px' });

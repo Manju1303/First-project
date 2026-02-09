@@ -11,29 +11,19 @@ const HeroSection = () => {
     ];
 
     return (
-        <section className="bg-white min-h-[600px] lg:min-h-[650px]">
+        <section className="bg-white min-h-[auto] lg:min-h-[600px]">
             {/* Yellow Top Banner */}
-            <div className="bg-secondary h-12 w-full"></div>
+            <div className="bg-secondary h-8 lg:h-12 w-full"></div>
 
-            <div className="flex flex-col lg:flex-row min-h-[550px]">
+            <div className="flex flex-col lg:flex-row min-h-[auto] lg:min-h-[550px]">
                 {/* Left Side - Blue Section */}
-                {/* Left Side - Blue Section */}
-                <div className="bg-primary lg:w-1/2 py-10 lg:py-20 px-8 lg:px-16 flex flex-col justify-center relative">
+                <div className="bg-primary lg:w-1/2 py-8 lg:py-20 px-6 lg:px-16 flex flex-col justify-center relative">
                     <div className="max-w-xl mx-auto lg:mx-0">
                         {/* Tagline */}
-                        <BlurText
-                            text="Guidance for"
-                            delay={100}
-                            className="text-lg md:text-xl font-light italic text-white/90 mb-5"
-                            direction="top"
-                            stepDuration={0.3}
-                            animateBy="words"
-                            easing={(t) => t}
-                            style={{ fontFamily: 'Georgia, serif' }}
-                        />
+
 
                         {/* Services List */}
-                        <div className="space-y-8 mb-10">
+                        <div className="space-y-6 mb-8">
                             {services.map((service, index) => {
                                 const IconComponent = service.icon;
                                 return (
@@ -60,7 +50,7 @@ const HeroSection = () => {
                         </div>
 
                         {/* Support Message */}
-                        <div className="mb-10">
+                        <div className="mb-8">
                             <BlurText
                                 text="We are here to SUPPORT YOU"
                                 delay={150}
@@ -111,17 +101,17 @@ const HeroSection = () => {
                 {/* Right Side - White Section with Student Image */}
                 <div className="bg-gray-50 lg:w-1/2 py-10 lg:py-0 px-6 lg:px-10 flex items-center justify-center relative overflow-hidden">
                     {/* Admission Badge */}
-                    <div className="absolute top-10 right-10 z-20 animate-bounce-slow">
-                        <div className="bg-white rounded-xl p-4 shadow-xl border-2 border-accent transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                            <p className="text-accent font-bold text-xs text-center uppercase tracking-wider"
+                    <div className="absolute top-4 right-4 lg:top-10 lg:right-10 z-20 animate-bounce-slow">
+                        <div className="bg-white rounded-xl p-3 lg:p-4 shadow-xl border-2 border-accent transform rotate-12 hover:rotate-0 transition-transform duration-300 scale-75 lg:scale-100 origin-top-right">
+                            <p className="text-accent font-bold text-[10px] lg:text-xs text-center uppercase tracking-wider"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 Admission
                             </p>
-                            <p className="text-accent font-bold text-xs text-center uppercase tracking-wider"
+                            <p className="text-accent font-bold text-[10px] lg:text-xs text-center uppercase tracking-wider"
                                 style={{ fontFamily: 'Poppins, sans-serif' }}>
                                 Going on
                             </p>
-                            <p className="text-primary font-extrabold text-3xl text-center mt-1"
+                            <p className="text-primary font-extrabold text-xl lg:text-3xl text-center mt-1"
                                 style={{ fontFamily: 'Montserrat, sans-serif' }}>
                                 2026-27
                             </p>
@@ -130,7 +120,7 @@ const HeroSection = () => {
 
                     {/* Student Image - Girl with colorful books */}
                     <div className="relative animate-slide-in-right">
-                        <div className="w-72 h-96 lg:w-[450px] lg:h-[600px] rounded-t-full overflow-hidden shadow-2xl bg-gradient-to-b from-gray-100 to-gray-200 border-4 border-white">
+                        <div className="w-full max-w-[18rem] h-96 lg:max-w-[450px] lg:w-[450px] lg:h-[600px] rounded-t-full overflow-hidden shadow-2xl bg-gradient-to-b from-gray-100 to-gray-200 border-4 border-white">
                             {/* Using local student image */}
                             <img
                                 src="/student.jpg"
