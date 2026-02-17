@@ -51,7 +51,7 @@ const CoursesSection = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-20 bg-white scroll-reveal" ref={sectionRef}>
+        <section className="pt-6 pb-12 lg:pt-10 lg:pb-20 bg-white scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center mb-10 animate-fade-in-up scroll-reveal" style={{ animationDelay: '0s' }}>

@@ -13,7 +13,7 @@ const GuidanceServices = () => {
     const sectionRef = useScrollReveal();
 
     return (
-        <section className="py-12 bg-bg-light scroll-reveal" ref={sectionRef}>
+        <section className="pt-12 pb-6 bg-bg-light scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center mb-10 animate-fade-in-up" style={{ animationDelay: '0s' }}>
