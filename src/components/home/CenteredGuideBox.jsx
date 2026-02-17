@@ -25,7 +25,7 @@ const CenteredGuideBox = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-8 lg:py-12 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
                 {/* Main Guide Box */}
                 <div className="guide-box animate-fade-in-up">

@@ -73,7 +73,7 @@ const EnquirySection = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-20 bg-gradient-to-br from-primary via-primary-dark to-primary-light relative overflow-hidden scroll-reveal" id="enquiry" ref={sectionRef}>
+        <section className="py-8 lg:py-12 bg-gradient-to-br from-primary via-primary-dark to-primary-light relative overflow-hidden scroll-reveal" id="enquiry" ref={sectionRef}>
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-float-slow"></div>

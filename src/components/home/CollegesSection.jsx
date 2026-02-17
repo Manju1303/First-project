@@ -6,9 +6,9 @@ import useScrollReveal from '../../hooks/useScrollReveal';
 const CollegesSection = () => {
     const sectionRef = useScrollReveal();
     return (
-        <section className="bg-white pb-20 scroll-reveal" ref={sectionRef}>
+        <section className="bg-white pb-12 scroll-reveal" ref={sectionRef}>
             {/* Styled Header Section */}
-            <div className="bg-gradient-to-r from-primary-dark to-primary py-16 mb-16 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-primary-dark to-primary py-10 mb-8 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full opacity-10">
                     <div className="absolute right-0 top-0 w-64 h-64 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
                     <div className="absolute left-0 bottom-0 w-64 h-64 bg-secondary rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>

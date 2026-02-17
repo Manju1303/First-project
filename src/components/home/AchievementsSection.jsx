@@ -28,7 +28,7 @@ const AchievementsSection = () => {
     ];
 
     return (
-        <section className="py-10 bg-primary text-white relative overflow-hidden" ref={sectionRef}>
+        <section className="py-6 bg-primary text-white relative overflow-hidden" ref={sectionRef}>
             {/* Decorative Background Patterns */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
                 <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

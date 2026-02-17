@@ -13,7 +13,7 @@ const AbroadStudySection = () => {
     ];
 
     return (
-        <section className="py-12 lg:py-20 bg-secondary relative overflow-hidden scroll-reveal" ref={sectionRef}>
+        <section className="py-8 lg:py-12 bg-secondary relative overflow-hidden scroll-reveal" ref={sectionRef}>
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-10 animate-fade-in-up">

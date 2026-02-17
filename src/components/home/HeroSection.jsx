@@ -99,7 +99,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Right Side - White Section with Student Image */}
-                <div className="bg-gray-50 lg:w-1/2 py-10 lg:py-0 px-6 lg:px-10 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full lg:w-1/2 flex items-center justify-center relative overflow-hidden">
                     {/* Admission Badge */}
                     <div className="absolute top-4 right-4 lg:top-10 lg:right-10 z-20 animate-bounce-slow">
                         <div className="bg-white rounded-xl p-3 lg:p-4 shadow-xl border-2 border-accent transform rotate-12 hover:rotate-0 transition-transform duration-300 scale-75 lg:scale-100 origin-top-right">
